@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>For Fiha — Forever Yours 💕</title>
+<meta name="description" content="A romantic little corner of the internet made by Siam for Fiha. 💕" />
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- 3D floating heart particle field (three.js canvas) -->
+  <canvas id="heart-field"></canvas>
+
+  <!-- Sparkle overlay -->
+  <div id="sparkle-overlay"></div>
+
+  <!-- Rose petals float layer -->
+  <div id="petal-layer"></div>
+
+  <!-- Customize panel -->
+  <button id="customize-toggle" title="Customize">✎ Edit</button>
+  <button id="project-fullscreen" type="button" aria-label="Open project in fullscreen" aria-pressed="false" title="View fullscreen">
+    <svg class="fullscreen-enter-icon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
+      <path d="M8 3H3v5M16 3h5v5M8 21H3v-5M16 21h5v-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+    <svg class="fullscreen-exit-icon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
+      <path d="M9 3v6H3M15 3v6h6M9 21v-6H3M15 21v-6h6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+    <span class="fullscreen-label">Full Screen</span>
+  </button>
+
+  <div id="customize-panel" class="hidden">
+    <h4>Personalize</h4>
+    <label>Her name
+      <input type="text" id="input-name" value="Fiha" placeholder="e.g. Riya" maxlength="24" />
+    </label>
+    <label>Together since
+      <input type="date" id="input-date" value="2025-04-04" />
+    </label>
+    <label>Your name (signature)
+      <input type="text" id="input-signature" value="Siam" placeholder="e.g. Arjun" maxlength="24" />
+    </label>
+    <button id="save-customize">Save</button>
+    <p class="hint">Saved on this device only.</p>
+  </div>
+
+  <!-- ============ HERO ============ -->
+  <section id="hero" class="section">
+    <div class="hero-glow"></div>
+    <div class="hero-heart-float">
+      <span>💕</span>
+    </div>
+    <p class="eyebrow">✦ 01 · Made with love by Siam ✦</p>
+    <h1 class="hero-title">
+      Happy<br />
+      <span class="script">Birthday</span><br />
+      <span id="hero-name" class="hero-name-glow">Fiha</span>
+    </h1>
+    <p class="hero-sub">A little corner of the internet made just for Fiha — to remind you how loved you are today, tomorrow, and every day after. You make my world beautiful just by being in it. 💗</p>
+    <button class="scroll-cue" id="scroll-cue">
+      <span>Open the love letter</span>
+      <svg viewBox="0 0 24 24" width="18" height="18"><path d="M12 4v14m0 0l-6-6m6 6l6-6" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
+  </section>
+
+  <!-- ============ LOVE LETTER ENVELOPE ============ -->
+  <section id="letter-section" class="section">
+    <p class="eyebrow">💌 02 · A love note for you</p>
+    <div class="envelope-wrap">
+      <div class="envelope" id="envelope">
+        <div class="flap"></div>
+        <div class="pocket-left"></div>
+        <div class="pocket-right"></div>
+        <div class="pocket-front">
+          <div class="envelope-seal">💋</div>
+        </div>
+        <div class="letter" id="letter-paper">
+          <p class="letter-greeting">My Dearest <span id="letter-name">Fiha</span>,</p>
+          <p>Fiha, I don’t need a special day to remind me how lucky I am. Every day with you is special, and I’m grateful that our story started on <strong>April 4th, 2025</strong>. 💕</p>
+          <p><strong>I LOVE YOU Baby, don't break my heart like others please beb. ❤️</strong> Thank you for every smile, every little moment, every laugh, and every memory we are making together.</p>
+          <p>And one small request from your Siam: <strong>Will you always be mine till death without any JOGRA 😒💕?</strong> I want more silly moments, more laughs, more memories, and a whole lot more love with you. 🌹</p>
+          <p class="letter-sign">Forever yours,<br/>— <span id="letter-signature">Siam</span> 💕</p>
+        </div>
+      </div>
+      <p class="envelope-hint" id="envelope-hint">💋 tap the envelope to open your love letter</p>
+    </div>
+  </section>
+
+  <!-- ============ STATS ============ -->
+  <section id="stats-section" class="section">
+    <p class="eyebrow">💑 03 · Siam + Fiha</p>
+    <h2 class="section-title">Our Love Story</h2>
+    <div class="stats-grid">
+      <div class="stat-card" data-tilt>
+        <div class="stat-icon">💕</div>
+        <span class="stat-number" id="stat-days">—</span>
+        <span class="stat-label">beautiful days together</span>
+      </div>
+      <div class="stat-card" data-tilt>
+        <div class="stat-icon">😍</div>
+        <span class="stat-number">∞</span>
+        <span class="stat-label">reasons I love you</span>
+      </div>
+      <div class="stat-card" data-tilt>
+        <div class="stat-icon">👸</div>
+        <span class="stat-number">1</span>
+        <span class="stat-label">queen of my heart</span>
+      </div>
+      <div class="stat-card" data-tilt>
+        <div class="stat-icon">💋</div>
+        <span class="stat-number">10<sup>∞</sup></span>
+        <span class="stat-label">kisses I owe you</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ REASONS FLIP CARDS ============ -->
+  <section id="reasons-section" class="section">
+    <p class="eyebrow">💝 04 · Little things I love about you</p>
+    <h2 class="section-title">Why I Love You</h2>
+    <p class="section-sub">Tap a card to reveal a secret 💗</p>
+    <div class="cards-grid" id="cards-grid"></div>
+  </section>
+
+  <!-- ============ 3D CAROUSEL ============ -->
+  <section id="gallery-section" class="section">
+    <p class="eyebrow">📸 05 · Our Moments</p>
+    <h2 class="section-title">Frames Worth Keeping</h2>
+    <p class="section-sub">Six little memories of my favorite girl. 💕 Tap the center photo for full view.</p>
+    <div class="carousel-wrap">
+      <button class="carousel-arrow left" id="arrow-left" aria-label="previous">‹</button>
+      <div class="carousel-stage" id="carousel-stage"></div>
+      <button class="carousel-arrow right" id="arrow-right" aria-label="next">›</button>
+    </div>
+  </section>
+
+
+  <!-- ============ OUR SONGS ============ -->
+  <section id="music-section" class="section music-section">
+    <p class="eyebrow">🎵 06 · Our Songs</p>
+    <h2 class="section-title">Press Play, Baby 💕</h2>
+    <p class="section-sub">Pick a song and let it play while you look through our little love story.</p>
+
+    <div class="music-card">
+      <div class="music-cover">🎶</div>
+      <div class="music-info">
+        <span class="music-kicker">For Fiha, from Siam</span>
+        <h3 id="music-title">Our Song #1 💗</h3>
+        <p id="music-note">A little soundtrack for us.</p>
+      </div>
+      <div class="music-choices">
+        <button class="music-choice active" type="button" data-video="QCDwWEDBuoQ" data-title="Our Song #1 💗">🎵 Song 1</button>
+        <button class="music-choice" type="button" data-video="UbMgcdmYC70" data-title="Our Song #2 💞">🎶 Song 2</button>
+      </div>
+      <div class="youtube-frame-wrap">
+        <iframe
+          id="youtube-player"
+          src="https://www.youtube.com/embed/QCDwWEDBuoQ?rel=0&modestbranding=1"
+          title="Our song for Fiha"
+          loading="lazy"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen></iframe>
+      </div>
+      <a class="youtube-link" id="youtube-link"
+         href="https://youtu.be/QCDwWEDBuoQ"
+         target="_blank" rel="noopener noreferrer">Open this song on YouTube ↗</a>
+    </div>
+  </section>
+
+  <!-- ============ PROPOSE SECTION ============ -->
+  <section id="propose-section" class="section">
+    <p class="eyebrow">💍 07 · The Big Question</p>
+    <h2 class="section-title propose-title">Will You Always Be Mine? 💍</h2>
+    <p class="section-sub">Will you always be mine till death without any JOGRA 😒💕?</p>
+    <div class="propose-buttons-wrap">
+      <button id="propose-yes" class="propose-btn propose-yes">Yes, I'm yours! 💕</button>
+      <button id="propose-no" class="propose-btn propose-no">No 💔</button>
+    </div>
+    <div id="propose-celebration" class="propose-celebration hidden">
+      <div class="celebration-text">
+        <h2>She said YES! 🎉💕</h2>
+        <p>I knew you couldn't say no! Fiha, you're stuck with Siam forever now. 😘💕</p>
+        <div class="celebration-hearts" id="celebration-hearts"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CLOSING ============ -->
+  <section id="closing-section" class="section">
+    <div class="closing-heart-wrap">
+      <div class="closing-heart" id="closing-heart"></div>
+    </div>
+    <h2 class="closing-title">I Love You, <span id="closing-name">Fiha</span> 💕</h2>
+    <p class="closing-sub">Press the heart and send all your love. 💗</p>
+    <button id="burst-btn" class="burst-btn">Send All My Love ♥</button>
+    <p class="closing-footer">Made with all my love by <span id="closing-signature">Siam</span> · For Fiha, always. 💕</p>
+  </section>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

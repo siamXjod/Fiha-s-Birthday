@@ -1,0 +1,2 @@
+Six cute illustrated adult-woman portraits are already included.
+To use personal photos later, place them here and update the portraits array in script.js.
